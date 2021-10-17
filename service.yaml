@@ -1,14 +1,10 @@
----
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: prometheus
-  labels:
-    app: prometheus
+  name: geekbrains
 spec:
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 9090
   selector:
-    app: prometheus
+    app: app
+  ports:
+    - port: 8000
+      targetPort: 8000

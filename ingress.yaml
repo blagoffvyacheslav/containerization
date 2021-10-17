@@ -1,16 +1,14 @@
 ---
-apiVersion: networking.k8s.io/v1
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: prometheus
+  name: geekbrains
 spec:
   rules:
-  - http:
-      paths:
-      - path: /
-        pathType: Exact
-        backend:
-          service:
-            name: prometheus
-            port:
-              number: 80
+    - host: __HOST__
+      http:
+        paths:
+          - backend:
+              serviceName: geekbrains
+              servicePort: 8000
+            path: /users
